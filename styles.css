@@ -1,0 +1,936 @@
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/*
+body {
+  margin-left: 10vw;
+  margin-right: 10vw;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+  */
+
+/*Header - Logo/NavBar/SearchBar*/
+
+header {
+  display: flex;
+  padding-top: 5vh;
+  height: 20vh;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  margin-bottom: 30px;
+}
+
+/*Brand Logo*/
+header #brandLogo {
+  min-width: 200px;
+  max-width: 250px;
+  height: auto;
+}
+
+/*NavBar*/
+header nav {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  font-family: "adobe-ming-std", sans-serif;
+  font-style: none;
+  color: black;
+}
+
+header nav .menu {
+  display: flex;
+  width: 100%;
+  list-style: none;
+  justify-content: space-around;
+  padding: 0;
+}
+
+header nav .menu a {
+  position: relative;
+  text-decoration: none;
+  color: #333;
+  color: black;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+header nav .menu a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  width: 0;
+  height: 2px; /* Adjust thickness of the underline */
+  background-color: #333; /* Adjust underline color */
+  transition: width 0.3s ease, left 0.3s ease;
+}
+
+header nav .menu a:hover::after {
+  width: 100%;
+  left: 0;
+}
+
+header nav .menu a:visited {
+  color: black;
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.userTools {
+  display: flex; /* Flexbox layout */
+  justify-content: space-around; /* Distribute space evenly around items */
+  align-items: center; /* Center items vertically */
+  flex-wrap: nowrap; /* Prevent items from wrapping */
+}
+
+.userTools ul {
+  display: flex;
+  width: auto; /* Allow the list to adapt to content */
+  height: auto;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 15px; /* Add consistent spacing between icons */
+}
+
+.userTools ul li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.userTools ul img {
+  max-width: 25px; /* Fixed maximum width for icons */
+  height: auto;
+  flex-shrink: 0; /* Prevent images from shrinking */
+  margin: 0;
+}
+
+.grocery-icon {
+  position: relative; /* Allows absolute positioning inside */
+  display: inline-block;
+}
+
+.notification {
+  position: absolute;
+  top: -10px; /* Adjust this value to place it relative to the icon's size */
+  right: -10px; /* Adjust this value to place it relative to the icon's size */
+  background-color: red; /* Red circle background */
+  color: white; /* White text color */
+  font-size: 12px; /* Font size for the number */
+  font-weight: bold;
+  padding: 4px 6px; /* Padding for a nice circle shape */
+  border-radius: 50%; /* Make it a circle */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 18px; /* Ensure it's a circle even for single digits */
+  min-height: 18px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+}
+
+#hamburger {
+  width: 40px;
+  height: 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  display: none;
+  border-radius: 3px;
+  background-color: #e4dede;
+  padding: 5px;
+}
+
+.line {
+  width: 100%;
+  height: 3px;
+  background-color: #333;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+@media (max-width: 1355px) {
+  header nav .menu a {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 1200px) {
+  header nav .menu a {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1080px) {
+  /* Hide the navigation menu */
+  header nav {
+    display: none;
+  }
+  .grocery-icon {
+    position: relative; /* Ensure it remains the positioning context */
+  }
+
+  .notification {
+    position: absolute;
+    top: -10px; /* Reapply if overridden */
+    right: -10px; /* Reapply if overridden */
+  }
+
+  /* Center the userTools container */
+  .userTools {
+    flex: 1; /* Allow userTools to take up available space */
+    justify-content: center; /* Center it horizontally */
+    margin-right: 135px; /* Push it to the center */
+  }
+
+  /* Position the hamburger menu to the right */
+  #hamburger {
+    display: flex; /* Ensure it's visible */
+    margin-left: auto; /* Push it to the right */
+  }
+}
+
+@media (max-width: 800px) {
+  .userTools {
+    display: none;
+  }
+}
+
+header main {
+  margin-top: 40px;
+}
+
+/*Main Section*/
+main section {
+  display: flex;
+  height: 600px;
+}
+
+main section div {
+  width: 50%;
+  height: 600px;
+}
+
+main section div img {
+  position: relative;
+  height: 600px;
+  width: auto;
+  width: 100%;
+}
+
+main section #left-hero {
+  display: flex;
+  flex-direction: column;
+  padding: 100px 100px 100px 100px;
+  color: white;
+  background: #1d1d1f;
+}
+
+main section #left-hero h1 {
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 54px;
+  margin-bottom: 24px;
+  font-weight: 800;
+}
+
+main section #left-hero h3 {
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 36px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+main section #left-hero p {
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 20px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+.wrapper a {
+  display: block;
+  width: 200px;
+  height: 40px;
+  line-height: 40px;
+  font-size: 18px;
+  font-family: "adobe-ming-std", sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  color: white;
+  border: 2px solid white;
+  letter-spacing: 2px;
+  text-align: center;
+  position: relative;
+  transition: all 0.35s;
+}
+
+.wrapper a span {
+  position: relative;
+  z-index: 2;
+}
+
+.wrapper a:after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: white;
+  transition: all 0.35s;
+}
+
+.wrapper a:hover {
+  color: black;
+}
+
+.wrapper a:hover:after {
+  width: 100%;
+}
+
+@media (max-width: 1450px) {
+  main section #left-hero h1 {
+    font-size: 48px;
+  }
+  main section #left-hero h3 {
+    font-size: 28px;
+  }
+  main section #left-hero p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 1200px) {
+  main section #left-hero {
+    display: flex;
+    flex-direction: column;
+    padding: 100px 50px 50px 50px;
+    color: white;
+    background: #1d1d1f;
+  }
+}
+
+@media (max-width: 1000px) {
+  main section #left-hero {
+    width: 100%;
+  }
+}
+
+@media (max-width: 468px) {
+  main section #left-hero {
+    padding-top: 50px;
+  }
+}
+
+#right-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#right-hero img {
+  height: 100%;
+  width: auto;
+}
+
+@media (max-width: 1000px) {
+  #right-hero {
+    display: none;
+  }
+}
+
+/*ABOUT US SECTION*/
+#aboutUs {
+  display: flex;
+  flex-direction: row;
+  height: 900px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+#aboutUs #right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+  text-align: left;
+  padding: 50px;
+}
+
+#aboutUs h2 {
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 40px;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+#aboutUs p {
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 20px;
+  margin-bottom: 24px;
+  line-height: 1.5;
+}
+
+#aboutUs blockquote {
+  font-size: 24px;
+  font-weight: 800;
+  text-align: center;
+  font-family: "adobe-ming-std", sans-serif;
+}
+
+#aboutUs #left {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 50vw;
+  overflow: hidden;
+}
+
+#aboutUs #left img {
+  height: 100%;
+  width: auto;
+}
+
+@media (max-width: 1200px) {
+  #aboutUs {
+    flex-direction: column;
+  }
+
+  #aboutUs #left {
+    min-height: 400px; /* Adjust height for smaller screens */
+    width: 100%;
+  }
+
+  #aboutUs #left img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures proportionality */
+  }
+
+  #aboutUs #right {
+    width: 100%;
+    padding: 20px; /* Adjust padding for smaller screens */
+  }
+
+  #aboutUs h2 {
+    font-size: 30px; /* Smaller heading size */
+  }
+
+  #aboutUs p {
+    font-size: 16px; /* Smaller text size */
+  }
+
+  #aboutUs blockquote {
+    font-size: 20px; /* Adjusted font size for quotes */
+  }
+}
+
+/*CARDS PRODUCTS SECTION*/
+
+.cards {
+  height: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50px;
+  padding: 20px 0;
+  height: 900px;
+}
+
+.cards h3 {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 30px;
+}
+
+.cards #guitarCards {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+  margin-bottom: 20px;
+}
+
+.cards #guitarCards .card h4 {
+  padding-top: 15px;
+  font-size: 20px;
+  font-family: "adobe-ming-std", sans-serif;
+  text-align: center;
+}
+.cards #guitarCards .card p {
+  font-family: "adobe-ming-std", sans-serif;
+  text-align: center;
+  padding-bottom: 20px;
+}
+
+.cards .card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+  width: 20%;
+  height: auto;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+.cards .card img {
+  /* Ensures the image covers the container without distortion */
+  object-fit: cover; /* Ensure the image fills the area */
+  width: 100%; /* Stretch image to the width of the card */
+  height: 600px; /* Fixed height for uniformity */
+  border-radius: 8px 8px 0 0; /* Optional: rounded corners for aesthetics */
+}
+
+.cards .card .description {
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 20px;
+  padding-left: 30px;
+  padding-right: 30px;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  width: 100%;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0; /* Hidden by default */
+  transition: opacity 0.4s ease; /* Smooth fade-in effect */
+}
+
+.card .price {
+  padding-top: 20px;
+}
+
+.cards .card:hover img {
+  opacity: 0; /* Fade out the image on hover */
+}
+
+.cards .card:hover .description {
+  display: block;
+  opacity: 1; /* Show the description on hover */
+}
+
+@media (max-width: 1350px) {
+  .cards .card {
+    height: 550px;
+  }
+}
+
+@media (max-width: 1250px) {
+  .cards .card {
+    height: 500px;
+  }
+}
+@media (max-width: 1350px) {
+  .cards .card {
+    height: 550px;
+  }
+}
+
+@media (max-width: 1150px) {
+  .cards .card {
+    height: 450px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .cards {
+    margin-top: -500px;
+    height: 1800px;
+  }
+
+  .cards #guitarCards {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os cartões quebrem para uma nova linha */
+    justify-content: space-around; /* Garante espaçamento uniforme */
+  }
+
+  .cards .card {
+    width: 45%; /* Cada cartão ocupa cerca de metade da linha, com espaço entre eles */
+    height: auto; /* Ajusta a altura automaticamente */
+    margin-bottom: 20px; /* Espaçamento entre as linhas */
+  }
+}
+
+@media (max-width: 850px) {
+  #eletricGuitars {
+    margin-top: -350px;
+  }
+  #pianos {
+    margin-top: -350px;
+  }
+}
+
+@media (max-width: 700px) {
+  #eletricGuitars {
+    margin-top: -450px;
+  }
+  #pianos {
+    margin-top: -450px;
+  }
+}
+
+@media (max-width: 574px) {
+  .cards {
+    margin-top: 100px;
+  }
+  #eletricGuitars {
+    margin-top: -650px;
+  }
+  #pianos {
+    margin-top: -650px;
+  }
+}
+
+@media (max-width: 574px) {
+  .cards {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 526px) {
+  .cards {
+    margin-top: 200px;
+  }
+}
+
+@media (max-width: 482px) {
+  .cards {
+    margin-top: 300px;
+  }
+}
+
+.cards + .cards {
+  margin-top: 50px; /* Adiciona espaço entre seções consecutivas */
+}
+
+/*------------------------*/
+.contact-section {
+  text-align: center;
+  background-color: #f9f9f9;
+  color: #333;
+  font-family: "adobe-ming-std", sans-serif;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.contact-section p {
+  font-size: 18px;
+  margin-bottom: 30px;
+}
+
+.contact-form {
+  text-align: left;
+  width: 100%;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  height: 75px;
+  width: 100%;
+}
+
+.form-group label {
+  font-weight: bold;
+  font-size: 20px;
+  display: block;
+}
+
+.form-group input,
+.form-group textarea {
+  margin-top: 15px;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  border-color: #1d1d1f;
+  outline: none;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+#contact {
+  display: flex;
+  flex-direction: row;
+  height: 700px;
+  margin-top: 100px;
+}
+
+#contactForm {
+  padding: 40px 80px;
+  width: 50%;
+}
+
+#contactImage {
+  height: 100%;
+  overflow: hidden;
+}
+
+#contactImage img {
+  height: 100%;
+  width: auto;
+}
+
+#contactForm #name,
+#email,
+#subject,
+#message {
+  width: 100%;
+  display: block;
+}
+
+.submit-button {
+  display: block;
+  margin: 60px auto 0 auto;
+  height: 36px;
+  width: 120px;
+  align-items: center;
+  border-radius: none;
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 16px;
+  background-color: #333;
+  border: #333 solid 2px;
+  color: #f9f9f9;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+.submit-button:hover {
+  color: #333;
+  background-color: #f9f9f9;
+  border: #333 solid 2px;
+  cursor: pointer;
+}
+
+@media (max-width: 1150px) {
+  #contactImage {
+    display: none;
+  }
+  #contactForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  #contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-form {
+    width: 80%;
+  }
+}
+
+@media (max-width: 1000px) {
+  #contact {
+    margin-top: 600px;
+  }
+}
+
+@media (max-width: 1000px) {
+  #contact {
+    margin-top: 600px;
+  }
+}
+
+@media (max-width: 900px) {
+  #contact {
+    margin-top: 500px;
+  }
+}
+
+@media (max-width: 800px) {
+  #contact {
+    margin-top: 400px;
+  }
+}
+
+@media (max-width: 700px) {
+  #contact {
+    margin-top: 300px;
+  }
+}
+
+@media (max-width: 600px) {
+  #contact {
+    margin-top: 100px;
+  }
+}
+
+@media (max-width: 500px) {
+  #contact {
+    margin-top: -100px;
+  }
+}
+
+/*FOOTER*/
+
+footer {
+  height: auto;
+  background-color: #f9f9f9;
+  padding-top: 100px;
+}
+
+#footer1 {
+  display: flex;
+  justify-content: space-around;
+}
+
+#footer1 #navigation ul li {
+  list-style: none;
+  margin-top: 10px;
+}
+
+#footer1 #navigation ul a {
+  text-decoration: none;
+  font-family: "adobe-ming-std", sans-serif;
+  color: #333;
+  font-weight: 600;
+}
+
+#contactInfo {
+  font-family: "adobe-ming-std", sans-serif;
+  align-items: center;
+}
+
+#contactInfo h4,
+p {
+  margin-top: 10px;
+}
+
+#footer2 {
+  margin-top: 100px;
+  font-family: "adobe-ming-std", sans-serif;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+#footer2 h4 {
+  font-size: 24px;
+}
+
+#footer2 input {
+  margin-top: 24px;
+  width: 300px;
+  height: 36px;
+  border-radius: 0;
+  border: none;
+  background-color: #e4dede;
+}
+
+#button-container {
+  text-align: center;
+}
+
+#footer2 button {
+  display: block;
+  height: 36px;
+  width: 120px;
+  align-items: center;
+  margin: 0 auto;
+  margin-top: 25px;
+  border-radius: none;
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 16px;
+  background-color: #333;
+  border: #333 solid 2px;
+  color: #f9f9f9;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s ease;
+}
+
+#footer2 button:hover {
+  color: #333;
+  background-color: #f9f9f9;
+  border: #333 solid 2px;
+  cursor: pointer;
+}
+
+#footer3 #socialmedialinks {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-around;
+}
+
+#footer3 #socialmedialinks ul {
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  gap: 30px;
+}
+
+#footer3 #socialmedialinks img {
+  width: 40px;
+}
+
+#footer4 {
+  margin-top: 100px;
+}
+
+#footer4 p {
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+  padding-bottom: 50px;
+  color: #1d1d1f;
+  font-size: 14px;
+}
+
+#footer4 ul {
+  margin-top: 30px;
+  padding: 0;
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  gap: 30px;
+  padding-bottom: 50px;
+  font-family: "adobe-ming-std", sans-serif;
+  font-size: 16px;
+}
+
+#footer4 ul a {
+  text-decoration: none;
+  color: #1d1d1f;
+}
+
+/*Formulário Compra*/
+
+.orderSummary {
+  margin-top: 300px;
+}
