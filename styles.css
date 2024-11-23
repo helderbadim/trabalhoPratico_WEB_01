@@ -1,3 +1,5 @@
+/* definir variáveis futuramente*/
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -6,14 +8,6 @@
 html {
   scroll-behavior: smooth;
 }
-
-/*
-body {
-  margin-left: 10vw;
-  margin-right: 10vw;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-}
-  */
 
 /*Header - Logo/NavBar/SearchBar*/
 
@@ -47,7 +41,7 @@ header nav {
   color: black;
 }
 
-header nav .menu {
+header nav .nav-bar {
   display: flex;
   width: 100%;
   list-style: none;
@@ -55,7 +49,7 @@ header nav .menu {
   padding: 0;
 }
 
-header nav .menu a {
+header nav .nav-bar a {
   position: relative;
   text-decoration: none;
   color: #333;
@@ -65,82 +59,85 @@ header nav .menu a {
   font-size: 22px;
 }
 
-header nav .menu a::after {
+header nav .nav-bar a::after {
   content: "";
   position: absolute;
   left: 50%;
   bottom: 0;
   width: 0;
-  height: 2px; /* Adjust thickness of the underline */
-  background-color: #333; /* Adjust underline color */
+  height: 2px;
+  background-color: #333;
   transition: width 0.3s ease, left 0.3s ease;
 }
 
-header nav .menu a:hover::after {
+header nav .nav-bar a:hover::after {
   width: 100%;
   left: 0;
 }
 
-header nav .menu a:visited {
+header nav .nav-bar a:visited {
   color: black;
   font-weight: 700;
   font-size: 22px;
 }
 
-.userTools {
-  display: flex; /* Flexbox layout */
-  justify-content: space-around; /* Distribute space evenly around items */
-  align-items: center; /* Center items vertically */
-  flex-wrap: nowrap; /* Prevent items from wrapping */
+/*Icons user/love/search/cart */
+
+.icon-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: nowrap;
 }
 
-.userTools ul {
+.icon-container ul {
   display: flex;
-  width: auto; /* Allow the list to adapt to content */
+  width: auto;
   height: auto;
   list-style: none;
   padding: 0;
   margin: 0;
-  gap: 15px; /* Add consistent spacing between icons */
+  gap: 15px;
 }
 
-.userTools ul li {
+.icon-container ul li {
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
 }
 
-.userTools ul img {
-  max-width: 25px; /* Fixed maximum width for icons */
+.icon-container ul img {
+  max-width: 25px;
   height: auto;
-  flex-shrink: 0; /* Prevent images from shrinking */
+  flex-shrink: 0;
   margin: 0;
 }
 
 .grocery-icon {
-  position: relative; /* Allows absolute positioning inside */
+  position: relative;
   display: inline-block;
 }
 
 .notification {
   position: absolute;
-  top: -10px; /* Adjust this value to place it relative to the icon's size */
-  right: -10px; /* Adjust this value to place it relative to the icon's size */
-  background-color: red; /* Red circle background */
-  color: white; /* White text color */
-  font-size: 12px; /* Font size for the number */
+  top: -10px;
+  right: -10px;
+  background-color: red;
+  color: white;
+  font-size: 12px;
   font-weight: bold;
-  padding: 4px 6px; /* Padding for a nice circle shape */
-  border-radius: 50%; /* Make it a circle */
+  padding: 4px 6px;
+  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  min-width: 18px; /* Ensure it's a circle even for single digits */
+  min-width: 18px;
   min-height: 18px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Optional: add a shadow */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
+/* hamburguer icon que vai estar escondido inicialmente */
 #hamburger {
   width: 40px;
   height: 36px;
@@ -159,51 +156,50 @@ header nav .menu a:visited {
   height: 3px;
   background-color: #333;
   transition: transform 0.3s ease, opacity 0.3s ease;
+  border-radius: 25%;
 }
 
+/* media queries do header*/
 @media (max-width: 1355px) {
-  header nav .menu a {
+  header nav .nav-bar a {
     font-size: 20px;
   }
 }
 
 @media (max-width: 1200px) {
-  header nav .menu a {
+  header nav .nav-bar a {
     font-size: 18px;
   }
 }
 
 @media (max-width: 1080px) {
-  /* Hide the navigation menu */
   header nav {
     display: none;
   }
   .grocery-icon {
-    position: relative; /* Ensure it remains the positioning context */
+    position: relative;
   }
 
   .notification {
     position: absolute;
-    top: -10px; /* Reapply if overridden */
-    right: -10px; /* Reapply if overridden */
+    top: -10px;
+    right: -10px;
   }
 
-  /* Center the userTools container */
-  .userTools {
-    flex: 1; /* Allow userTools to take up available space */
-    justify-content: center; /* Center it horizontally */
-    margin-right: 135px; /* Push it to the center */
+  .icon-container {
+    flex: 1;
+    justify-content: center;
+    margin-right: 135px;
   }
 
-  /* Position the hamburger menu to the right */
   #hamburger {
-    display: flex; /* Ensure it's visible */
-    margin-left: auto; /* Push it to the right */
+    display: flex;
+    margin-left: auto;
   }
 }
 
 @media (max-width: 800px) {
-  .userTools {
+  .icon-container {
     display: none;
   }
 }
@@ -212,7 +208,7 @@ header main {
   margin-top: 40px;
 }
 
-/*Main Section*/
+/*Main da nossa página*/
 main section {
   display: flex;
   height: 600px;
@@ -300,6 +296,24 @@ main section #left-hero p {
   width: 100%;
 }
 
+#right-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+#right-hero img {
+  height: 100%;
+  width: 100%;
+}
+
+/*media queries do main */
+@media (max-width: 1600px) {
+  #right-hero img {
+    height: 100%;
+    width: auto;
+  }
+}
+
 @media (max-width: 1450px) {
   main section #left-hero h1 {
     font-size: 48px;
@@ -326,34 +340,14 @@ main section #left-hero p {
   main section #left-hero {
     width: 100%;
   }
+  main section #right-hero {
+    display: none;
+  }
 }
 
 @media (max-width: 468px) {
   main section #left-hero {
     padding-top: 50px;
-  }
-}
-
-#right-hero {
-  position: relative;
-  overflow: hidden;
-}
-
-#right-hero img {
-  height: 100%;
-  width: 100%;
-}
-
-@media (max-width: 1600px) {
-  #right-hero img {
-    height: 100%;
-    width: auto;
-  }
-}
-
-@media (max-width: 1000px) {
-  #right-hero {
-    display: none;
   }
 }
 
@@ -409,37 +403,39 @@ main section #left-hero p {
   width: auto;
 }
 
+/*media queries da about us section*/
+
 @media (max-width: 1200px) {
   #aboutUs {
     flex-direction: column;
   }
 
   #aboutUs #left {
-    min-height: 400px; /* Adjust height for smaller screens */
+    min-height: 400px;
     width: 100%;
   }
 
   #aboutUs #left img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures proportionality */
+    object-fit: cover;
   }
 
   #aboutUs #right {
     width: 100%;
-    padding: 20px; /* Adjust padding for smaller screens */
+    padding: 20px;
   }
 
   #aboutUs h2 {
-    font-size: 30px; /* Smaller heading size */
+    font-size: 30px;
   }
 
   #aboutUs p {
-    font-size: 16px; /* Smaller text size */
+    font-size: 16px;
   }
 
   #aboutUs blockquote {
-    font-size: 20px; /* Adjusted font size for quotes */
+    font-size: 20px;
   }
 }
 
@@ -538,6 +534,8 @@ main section #left-hero p {
   opacity: 1; /* Show the description on hover */
 }
 
+/*Media queries da CARDS PRODUCTS SECTION*/
+
 @media (max-width: 1350px) {
   .cards .card {
     height: 550px;
@@ -602,11 +600,9 @@ main section #left-hero p {
   .cards {
     margin-top: 100px;
   }
-  #eletricGuitars {
-    margin-top: -650px;
-  }
+
   #pianos {
-    margin-top: -650px;
+    margin-top: 0px;
   }
 }
 
@@ -632,7 +628,7 @@ main section #left-hero p {
   margin-top: 50px; /* Adiciona espaço entre seções consecutivas */
 }
 
-/*------------------------*/
+/*Formulário de contacto*/
 .contact-section {
   text-align: center;
   background-color: #f9f9f9;
@@ -741,6 +737,7 @@ main section #left-hero p {
   cursor: pointer;
 }
 
+/*media querie do formulario de contacto*/
 @media (max-width: 1150px) {
   #contactImage {
     display: none;
@@ -786,21 +783,9 @@ main section #left-hero p {
   }
 }
 
-@media (max-width: 700px) {
-  #contact {
-    margin-top: 300px;
-  }
-}
-
 @media (max-width: 600px) {
   #contact {
-    margin-top: 100px;
-  }
-}
-
-@media (max-width: 500px) {
-  #contact {
-    margin-top: -100px;
+    margin-top: 400px;
   }
 }
 
@@ -936,7 +921,7 @@ p {
   color: #1d1d1f;
 }
 
-/*Formulário Compra*/
+/*Página do Formulário Compra*/
 
 .orderSummary {
   margin-top: 300px;
