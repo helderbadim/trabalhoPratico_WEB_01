@@ -341,7 +341,14 @@ main section #left-hero p {
 
 #right-hero img {
   height: 100%;
-  width: auto;
+  width: 100%;
+}
+
+@media (max-width: 1600px) {
+  #right-hero img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 @media (max-width: 1000px) {
