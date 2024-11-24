@@ -1,4 +1,4 @@
-/* definir variáveis futuramente*/
+/* definir variáveis no root futuramente*/
 
 * {
   margin: 0;
@@ -496,11 +496,10 @@ main section #left-hero p {
 }
 
 .cards .card img {
-  /* Ensures the image covers the container without distortion */
-  object-fit: cover; /* Ensure the image fills the area */
-  width: 100%; /* Stretch image to the width of the card */
-  height: 600px; /* Fixed height for uniformity */
-  border-radius: 8px 8px 0 0; /* Optional: rounded corners for aesthetics */
+  object-fit: cover;
+  width: 100%;
+  height: 600px;
+  border-radius: 8px 8px 0 0;
 }
 
 .cards .card .description {
@@ -517,8 +516,8 @@ main section #left-hero p {
   align-items: center;
   justify-content: center;
   text-align: center;
-  opacity: 0; /* Hidden by default */
-  transition: opacity 0.4s ease; /* Smooth fade-in effect */
+  opacity: 0;
+  transition: opacity 0.4s ease;
 }
 
 .card .price {
@@ -526,12 +525,12 @@ main section #left-hero p {
 }
 
 .cards .card:hover img {
-  opacity: 0; /* Fade out the image on hover */
+  opacity: 0;
 }
 
 .cards .card:hover .description {
   display: block;
-  opacity: 1; /* Show the description on hover */
+  opacity: 1;
 }
 
 /*Media queries da CARDS PRODUCTS SECTION*/
@@ -567,14 +566,14 @@ main section #left-hero p {
 
   .cards #guitarCards {
     display: flex;
-    flex-wrap: wrap; /* Permite que os cartões quebrem para uma nova linha */
-    justify-content: space-around; /* Garante espaçamento uniforme */
+    flex-wrap: wrap;
+    justify-content: space-around;
   }
 
   .cards .card {
-    width: 45%; /* Cada cartão ocupa cerca de metade da linha, com espaço entre eles */
-    height: auto; /* Ajusta a altura automaticamente */
-    margin-bottom: 20px; /* Espaçamento entre as linhas */
+    width: 45%;
+    height: auto;
+    margin-bottom: 20px;
   }
 }
 
@@ -625,7 +624,7 @@ main section #left-hero p {
 }
 
 .cards + .cards {
-  margin-top: 50px; /* Adiciona espaço entre seções consecutivas */
+  margin-top: 50px;
 }
 
 /*Formulário de contacto*/
